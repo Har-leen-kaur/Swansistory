@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Swansistory1</string>
+    <string name="threeCliff">Three Cliffs Bay</string>
+    <string name="rhosilli">Rhosilli</string>
+    <string name="nationalWaterfront">National Waterfront Museum</string>
+    <string name="swanseaCastle">Swansea Castle</string>
+    <string name="swanseaMuseumDylan">Swansea Museum Dylan Thomas</string>
+    <string name="mumbles">Mumbles and Swansea Bay</string>
+    <string name="clyneGarden">Clyne Gardens</string>
+</resources>
