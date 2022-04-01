@@ -6,6 +6,7 @@ import android.widget.TextView
 class Thumbnails_poi {
     var thumbnail_imageView: Int = 0
     var thumbnail_textView: String? = null
+    var thumbnail_id = null
 
     fun getThumbnailImage(): Int{
         return thumbnail_imageView

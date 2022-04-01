@@ -1,12 +1,15 @@
 package com.example.swansistory1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class ThumbnailActivity : AppCompatActivity() {
+class ThumbnailActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thumbnail)
@@ -18,6 +21,8 @@ class ThumbnailActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         val mAdapter = ThumbnailAdapter(thumbnailList)
         recyclerView.adapter = mAdapter
+
+
     }
 
     private fun populateList(): ArrayList<Thumbnails_poi> {
@@ -31,15 +36,20 @@ class ThumbnailActivity : AppCompatActivity() {
         val myImageNameList = arrayOf(R.string.swanseaCastle, R.string.mumbles, R.string.clyneGarden,
             R.string.nationalWaterfront, R.string.rhosilli, R.string.threeCliff, R.string.swanseaMuseumDylan)
 
+
+
 //    Wrapping up an image and a name in the model class
         for (i in 0..6) {
             val imageModel = Thumbnails_poi()
             imageModel.setThumbnailText(getString(myImageNameList[i]))
             imageModel.setThumbnailImage(myImageList[i])
+
             list.add(imageModel)
         }
         //sorting alphabetically
         //list.sortBy { list -> list.modelName }
         return list
     }
+
+
 }

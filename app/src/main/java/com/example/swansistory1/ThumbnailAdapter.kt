@@ -1,16 +1,15 @@
 package com.example.swansistory1
 
-import android.media.Image
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.swansistory1.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-
-//import com.example.swansistory1.databinding.RecyclerViewItemBinding
 
 
 class ThumbnailAdapter (private val imageModelArrayList: MutableList<Thumbnails_poi>) : RecyclerView.Adapter<ThumbnailAdapter.ViewHolder>() {
@@ -33,6 +32,7 @@ class ThumbnailAdapter (private val imageModelArrayList: MutableList<Thumbnails_
 
         holder.imgView.setImageResource(info.getThumbnailImage())
         holder.txtMsg.text = info.getThumbnailText()
+
     }
 
     /*
@@ -48,6 +48,7 @@ class ThumbnailAdapter (private val imageModelArrayList: MutableList<Thumbnails_
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener
     {
 
+
         var imgView = itemView.findViewById<View>(R.id.poi_thumbnail_img) as ImageView
         var txtMsg = itemView.findViewById<View>(R.id.poi_thumbnail_txt) as TextView
 
@@ -55,11 +56,21 @@ class ThumbnailAdapter (private val imageModelArrayList: MutableList<Thumbnails_
             itemView.setOnClickListener(this)
         }
 
+        //rootView to move to next Intent
+        var rootView = itemView.rootView
+
         override fun onClick(v: View) {
-            val mess =
-                txtMsg.text.toString()
-            val snackbar = Snackbar.make(v, mess, Snackbar.LENGTH_LONG)
+            val mess = txtMsg.text.toString()
+            val snackbar = Snackbar.make(v, bindingAdapterPosition.toString(), Snackbar.LENGTH_LONG)
             snackbar.show()
+
+            var context = rootView.context
+
+            //opening info page when cardView is clicked
+//            var intent =  Intent(context, InfoThreeCliffActivity::class.java)
+//            intent.putExtra("id", bindingAdapterPosition)
+//            context.startActivity(intent)
+
         }
     }
 }
